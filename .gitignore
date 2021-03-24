@@ -1,0 +1,4 @@
+# Project exclude paths
+/common/common-utils/target/
+/common/service-bash/target/
+/service/service_edu/target/
