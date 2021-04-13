@@ -6,12 +6,9 @@ import com.at.eduservice.entity.EduTeacher;
 import com.at.eduservice.entity.vo.TeacherQuery;
 import com.at.eduservice.service.EduTeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sun.org.apache.regexp.internal.RE;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.apache.poi.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +47,7 @@ public class EduTeacherController {
         }
     }
 
+    @ApiOperation(value = "分页查询讲师")
     @GetMapping("/page/{current}/{size}")
     public R pageTeacher(@PathVariable int current,@PathVariable int size){
         Page<EduTeacher> page=new Page<>(current,size);
@@ -59,6 +57,7 @@ public class EduTeacherController {
         return R.ok().data("Total",total).data("findPage",list);
     }
 
+    @ApiOperation(value = "分页条件查询讲师")
     @PostMapping("/pageCondition/{current}/{size}")
     public R pageTeacherCondition(@PathVariable Long current, @PathVariable Long size,@RequestBody(required = false) TeacherQuery teacherQuery){
         Page<EduTeacher> page=new Page<>(current,size);
@@ -76,12 +75,14 @@ public class EduTeacherController {
         }if (end!=null){
             wrapper.le("gmt_create",end);
         }
+        wrapper.orderByDesc("gmt_create");
         eduTeacherService.page(page,wrapper);
         long total=page.getTotal();
         List<EduTeacher> list=page.getRecords();
         return R.ok().data("total",total).data("list",list);
     }
 
+    @ApiOperation("新增讲师")
     @PostMapping("/addTeacher")
     public R addTeacher(@RequestBody EduTeacher eduTeacher){
         boolean save = eduTeacherService.save(eduTeacher);
@@ -98,6 +99,7 @@ public class EduTeacherController {
         return R.ok().data("Teacher",byId);
     }
 
+    @ApiOperation(value = "更新讲师")
     @PostMapping("/updateTeacher")
     public R updateTeacher(@RequestBody EduTeacher eduTeacher){
         boolean b = eduTeacherService.updateById(eduTeacher);
