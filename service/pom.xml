@@ -16,6 +16,7 @@
     <modules>
         <module>service_edu</module>
         <module>service_vod</module>
+        <module>service_oss</module>
     </modules>
 
     <properties>
@@ -62,6 +63,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.44</version>
         </dependency>
         <!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 -->
         <dependency>

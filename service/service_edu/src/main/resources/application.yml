@@ -7,8 +7,8 @@ spring:
   profiles:
     active: dev
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rm-2vcj0c5x9fl4grz0i9o.mysql.cn-chengdu.rds.aliyuncs.com:3306/guli?serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.25.132:8066/guli?serverTimezone=GMT%2B8
     username: root
     password: YUFhNzM5NzcxNDA5
   jackson:

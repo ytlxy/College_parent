@@ -1,0 +1,19 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: service_oss
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 3MB
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-chengdu.aliyuncs.com
+      keyid: LTAI5t7HD6ccvJffdziMdVTN
+      keysecret: oDYKN9OB0vphSS7kaY5rkt02qRTVMY
+      bucketname: edu-guli-102

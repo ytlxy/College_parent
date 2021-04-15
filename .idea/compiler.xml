@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="service_edu" />
         <module name="service_vod" />
+        <module name="service_oss" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="service" options="" />
       <module name="service-bash" options="-parameters" />
       <module name="service_edu" options="-parameters" />
+      <module name="service_oss" options="-parameters" />
       <module name="service_vod" options="-parameters" />
     </option>
   </component>

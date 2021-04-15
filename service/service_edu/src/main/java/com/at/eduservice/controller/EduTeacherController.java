@@ -96,7 +96,7 @@ public class EduTeacherController {
     @GetMapping("/getTeacher/{id}")
     public R getTeacher(@PathVariable Long id){
         EduTeacher byId = eduTeacherService.getById(id);
-        return R.ok().data("Teacher",byId);
+        return R.ok().data("teacher",byId);
     }
 
     @ApiOperation(value = "更新讲师")
