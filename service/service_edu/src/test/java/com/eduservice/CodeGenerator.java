@@ -39,7 +39,7 @@ public class CodeGenerator {
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl("jdbc:mysql://192.168.25.132:3306/guli?serverTimezone=GMT%2B8");
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("000000");
         dsc.setDbType(DbType.MYSQL);
@@ -50,7 +50,7 @@ public class CodeGenerator {
 
         //生成包：com.achang.eduservice
         pc.setModuleName("eduservice"); //模块名
-        pc.setParent("com.edu");
+        pc.setParent("com.at");
 
         //生成包：com.achang.controller
         pc.setController("controller");
@@ -61,7 +61,7 @@ public class CodeGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("edu_teacher");//根据数据库哪张表生成，有多张表就加逗号继续填写
+        strategy.setInclude("edu_subject");//根据数据库哪张表生成，有多张表就加逗号继续填写
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
