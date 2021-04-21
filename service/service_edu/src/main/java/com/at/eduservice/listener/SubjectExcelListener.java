@@ -25,6 +25,7 @@ public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
             throw new BoomException(20001, "文件数据为空");
         }
         EduSubject eduSubject = this.existOneSubject(eduSubjectService, subjectData.getOneSubjectName());
+        System.out.println(eduSubject+"-------------------");
         if (eduSubject == null) {
             eduSubject = new EduSubject();
             eduSubject.setParentId("0");
@@ -43,16 +44,16 @@ public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
 
     private EduSubject existOneSubject(EduSubjectService eduSubjectService, String name) {
         QueryWrapper<EduSubject> wrapper = new QueryWrapper<>();
-        wrapper.eq("title", name);
-        wrapper.eq("parent_id", "0");
+        wrapper.eq("title",name)
+                .eq("parent_id","0");
         EduSubject eduSubject = eduSubjectService.getOne(wrapper);
         return eduSubject;
     }
 
     private EduSubject existTwoSubject(EduSubjectService eduSubjectService, String name, String pid) {
         QueryWrapper<EduSubject> wrapper = new QueryWrapper<>();
-        wrapper.eq("title", name);
-        wrapper.eq("parent_id", pid);
+        wrapper.eq("title",name)
+                .eq("parent_id",pid);
         EduSubject eduSubject = eduSubjectService.getOne(wrapper);
         return eduSubject;
     }
