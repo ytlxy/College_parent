@@ -14,6 +14,6 @@ aliyun:
   oss:
     file:
       endpoint: oss-cn-chengdu.aliyuncs.com
-      keyid: xxx
-      keysecret: xxx
+      keyid: LTAI5t7HD6ccvJffdziMdVTN
+      keysecret: oDYKN9OB0vphSS7kaY5rkt02qRTVMY
       bucketname: edu-guli-102

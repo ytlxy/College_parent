@@ -1,6 +1,7 @@
 package com.at.serviceBash.exceptionhandler;
 
 import com.at.commonUtils.R;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,5 +29,12 @@ public class GlobalExceptionHandler {
     public R error(BoomException e){
         e.printStackTrace();
         return R.error().code(e.getCode()).message(e.getMsg());
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseBody
+    public R error(DataIntegrityViolationException e){
+        e.printStackTrace();
+        return R.error().message("简介数据过长，或上传图片过大");
     }
 }
