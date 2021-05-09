@@ -41,4 +41,14 @@ public class EduVideoController {
             return R.error();
         }
     }
+
+    @PostMapping("/updateVideo")
+    public R updateVideo(@RequestBody EduVideo eduVideo) {
+        boolean flag = eduVideoService.updateById(eduVideo);
+        if (flag) {
+            return R.ok();
+        } else {
+            return R.error();
+        }
+    }
 }
