@@ -1,6 +1,7 @@
 package com.at.eduservice.mapper;
 
 import com.at.eduservice.entity.EduCourse;
+import com.at.eduservice.entity.vo.CoursePublishVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2021-04-21
  */
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
-
+    public CoursePublishVo getPublishCourseInfo(String courseId);
 }

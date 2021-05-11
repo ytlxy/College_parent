@@ -51,4 +51,10 @@ public class EduVideoController {
             return R.error();
         }
     }
+
+    @GetMapping("/getVideoById/{id}")
+    public R getVideoById(@PathVariable String id) {
+        EduVideo byId = eduVideoService.getById(id);
+        return R.ok().data("video", byId);
+    }
 }
