@@ -2,8 +2,10 @@ package com.at.eduservice.controller;
 
 
 import com.at.commonUtils.R;
+import com.at.eduservice.client.VodClient;
 import com.at.eduservice.entity.EduVideo;
 import com.at.eduservice.service.EduVideoService;
+import com.mysql.jdbc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +24,9 @@ public class EduVideoController {
     @Autowired
     private EduVideoService eduVideoService;
 
+    @Autowired
+    private VodClient vodClient;
+
     @PostMapping("/addVideo")
     public R addVideo(@RequestBody EduVideo eduVideo) {
         boolean flag = eduVideoService.save(eduVideo);
@@ -34,12 +39,13 @@ public class EduVideoController {
 
     @DeleteMapping("/{id}")
     public R deleteVideo(@PathVariable String id) {
-        boolean flag = eduVideoService.removeById(id);
-        if (flag) {
-            return R.ok();
-        } else {
-            return R.error();
+        EduVideo video = eduVideoService.getById(id);
+        String videoSourceId = video.getVideoSourceId();
+        if (!StringUtils.isEmptyOrWhitespaceOnly(videoSourceId)){
+            vodClient.removeAlyVideo(videoSourceId);
         }
+        eduVideoService.removeById(id);
+        return R.ok();
     }
 
     @PostMapping("/updateVideo")

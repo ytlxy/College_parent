@@ -28,7 +28,6 @@
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-<!--            <version>2.2.1.RELEASE</version>-->
 <!--        </dependency>-->
 <!--        &lt;!&ndash;hystrix依赖，主要是用 @HystrixCommand &ndash;&gt;-->
 <!--        <dependency>-->
@@ -37,15 +36,20 @@
 <!--            <version>2.2.1.RELEASE</version>-->
 <!--        </dependency>-->
 <!--        &lt;!&ndash;服务注册&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+<!--        Spring Cloud的负载均衡需要单独引入-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
 <!--        &lt;!&ndash;服务调用&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
