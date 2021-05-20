@@ -18,7 +18,24 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.25.132:80
+    sentinel:
+      transport:
+        dashboard: 192.168.25.132:8858
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 192.168.25.132:80
+            dataId: service-vod
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 
+
+
+feign:
+  sentinel:
+    enabled: true
 
 mybatis-plus:
   configuration:

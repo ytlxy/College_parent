@@ -60,7 +60,7 @@ public class VodServiceImpl implements VodService {
     }
 
     @Override
-    public void removeMoreAlyVideo(List videoIdList) {
+    public void removeMoreAlyVideo(List<String> videoIdList) {
         try {
             DefaultAcsClient client= InitVodClient.initVodClient(ConstantVodUtils.ACCESS_KEY_ID,ConstantVodUtils.ACCESS_KEY_KEYSECRET);
             DeleteVideoRequest request = new DeleteVideoRequest();

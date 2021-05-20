@@ -28,7 +28,7 @@ public class VodController {
     }
 
     @DeleteMapping("/delete-batch")
-    public R deleteBatch(@RequestParam("videoIdList") List videoIdList){
+    public R deleteBatch(@RequestParam("videoIdList") List<String> videoIdList){
         vodService.removeMoreAlyVideo(videoIdList);
         return R.ok();
     }

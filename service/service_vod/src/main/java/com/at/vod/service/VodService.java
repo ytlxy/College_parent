@@ -7,5 +7,5 @@ import java.util.List;
 public interface VodService {
     public String uploadVideoAly(MultipartFile file);
     public void removeAliyunVideoById(String id);
-    public void removeMoreAlyVideo(List videoIdList);
+    public void removeMoreAlyVideo(List<String> videoIdList);
 }

@@ -5,6 +5,7 @@ import com.at.commonUtils.R;
 import com.at.eduservice.client.VodClient;
 import com.at.eduservice.entity.EduVideo;
 import com.at.eduservice.service.EduVideoService;
+import com.at.serviceBash.exceptionhandler.BoomException;
 import com.mysql.jdbc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,10 @@ public class EduVideoController {
         EduVideo video = eduVideoService.getById(id);
         String videoSourceId = video.getVideoSourceId();
         if (!StringUtils.isEmptyOrWhitespaceOnly(videoSourceId)){
-            vodClient.removeAlyVideo(videoSourceId);
+            R r = vodClient.removeAlyVideo(videoSourceId);
+            if (r.getCode() == 20001){
+                throw new BoomException(20001,"视频删除失败");
+            }
         }
         eduVideoService.removeById(id);
         return R.ok();
