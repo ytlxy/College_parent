@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/common/common-utils/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/service-bash/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/service-bash/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-cms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service_acl/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/service_edu/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/service_oss/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/service_vod/src/main/java" charset="UTF-8" />

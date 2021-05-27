@@ -17,7 +17,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -112,4 +115,15 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
             throw new BoomException(20001,"删除失败");
         }
     }
+
+    @Cacheable(key = "'selectHotCourse'",value = "course")
+    @Override
+    public List<EduCourse> selectList() {
+        QueryWrapper<EduCourse> wrapper=new QueryWrapper<>();
+        wrapper.orderByDesc("id");
+        wrapper.last("limit 8");
+        List<EduCourse> list = baseMapper.selectList(wrapper);
+        return list;
+    }
+
 }
