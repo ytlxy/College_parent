@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/eduvod/video")
+@CrossOrigin
 public class VodController {
 
     @Autowired

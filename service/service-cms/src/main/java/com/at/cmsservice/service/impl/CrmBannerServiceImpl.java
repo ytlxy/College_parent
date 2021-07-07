@@ -53,6 +53,5 @@ public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner
         }
         wrapper.orderByDesc("gmt_create");
         baseMapper.selectPage(page,wrapper);
-
     }
 }
